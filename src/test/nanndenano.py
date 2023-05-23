@@ -176,12 +176,12 @@ class Enemy2:
                 is_wall(self.x - 1, self.y + 4) or not is_wall(self.x - 1, self.y + 8)
             ):
                 self.direction = 1
-            elif pyxel.btnp(pyxel.KEY_SPACE) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_A):
-            self.dy = -10
-            
             elif self.direction > 0 and (
                 is_wall(self.x + 8, self.y + 4) or not is_wall(self.x + 7, self.y + 8)
             ):
+        elif pyxel.btnp(pyxel.KEY_SPACE) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_A):
+            self.dy = -10
+            
                 self.direction = -1
         self.x, self.y, self.dx, self.dy = push_back(self.x, self.y, self.dx, self.dy)
 
