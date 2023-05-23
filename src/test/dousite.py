@@ -176,6 +176,8 @@ class Enemy2:
                 is_wall(self.x - 1, self.y + 4) or not is_wall(self.x - 1, self.y + 8)
             ):
                 self.direction = 1
+            elif pyxel.btnp(pyxel.KEY_SPACE) or pyxel.btnp(pyxel.GAMEPAD1_BUTTON_A):
+            self.dy = -10
             elif self.direction > 0 and (
                 is_wall(self.x + 8, self.y + 4) or not is_wall(self.x + 7, self.y + 8)
             ):
@@ -231,7 +233,7 @@ class Enemy3Bullet:
 class App:
     def __init__(self):
         pyxel.init(128, 128, title="Pyxel Platformer")
-        pyxel.load("title (3).pyxres")
+        pyxel.load("title (4).pyxres")
 
         # Change enemy spawn tiles invisible
         pyxel.image(0).rect(0, 8, 24, 8, TRANSPARENT_COLOR)
