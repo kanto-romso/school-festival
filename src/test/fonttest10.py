@@ -350,7 +350,7 @@ class App:
             pyxel.quit()
 
         player.update()
-        score.update()
+        #score.update()
         for enemy in enemies:
             if abs(player.x - enemy.x) < 6 and abs(player.y - enemy.y) < 6:
                 game_over()
@@ -372,7 +372,7 @@ class App:
         # Draw characters
         pyxel.camera(scroll_x, 0)
         player.draw()
-        #score.draw()
+        score.draw()
         for enemy in enemies:
             enemy.draw()
 
