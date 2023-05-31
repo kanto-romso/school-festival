@@ -235,7 +235,7 @@ class Enemy3Bullet:
 class App:
     def __init__(self):
         pyxel.init(128, 128, title="Pyxel Platformer")
-        pyxel.load("title (6).pyxres")
+        pyxel.load("title (7).pyxres")
 
         # Change enemy spawn tiles invisible
         pyxel.image(0).rect(0, 8, 24, 8, TRANSPARENT_COLOR)
