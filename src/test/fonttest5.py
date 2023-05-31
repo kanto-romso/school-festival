@@ -323,6 +323,8 @@ class App:
         # Change enemy spawn tiles invisible
         pyxel.image(0).rect(0, 8, 24, 8, TRANSPARENT_COLOR)
 
+        umplus10.draw_text(0, 8, "Pyxel♪", 8)
+
         global player
         player = Player(0, 0)
         spawn_enemy(0, 127)
