@@ -315,7 +315,7 @@ class BDFRenderer:
 class App:
     def __init__(self):
         pyxel.init(128, 128, title="Pyxel Platformer")
-        pyxel.load("title (8).pyxres")
+        pyxel.load("title (7).pyxres")
         
         umplus10 = BDFRenderer("assets/umplus_j10r.bdf")
         umplus12 = BDFRenderer("assets/umplus_j12r.bdf")
