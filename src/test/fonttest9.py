@@ -372,7 +372,7 @@ class App:
         # Draw characters
         pyxel.camera(scroll_x, 0)
         player.draw()
-        score.draw()
+        #score.draw()
         for enemy in enemies:
             enemy.draw()
 
