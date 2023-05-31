@@ -342,9 +342,6 @@ class App:
             if enemy.x < scroll_x - 8 or enemy.x > scroll_x + 160 or enemy.y > 160:
                 enemy.is_alive = False
         cleanup_list(enemies)
-        umplus10.draw_text(24, 8, "Pyxel♪", 8)
-        umplus12.draw_text(4, 98, "気軽に楽しく", 7, 5)
-        umplus12.draw_text(4, 113, "プログラミング！", 7, 5)
 
     def draw(self):
         pyxel.cls(0)
