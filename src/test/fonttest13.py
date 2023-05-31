@@ -255,6 +255,7 @@ class App:
             pyxel.quit()
 
         player.update()
+        self.score = scroll_x
         for enemy in enemies:
             if abs(player.x - enemy.x) < 6 and abs(player.y - enemy.y) < 6:
                 game_over()
