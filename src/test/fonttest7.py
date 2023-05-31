@@ -310,6 +310,20 @@ class BDFRenderer:
                     )
             self._draw_font(x, y, font, color)
             x += font[0] + spacing
+class Score:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+        self.dx = 0
+        self.dy = 0
+        self.direction = 0
+        self.is_falling = False
+
+    def update(self):
+        global scroll_x
+
+    def draw(self):
+        umplus12.draw_text(50, 58, "Pyxel♪", 8)
 
 
 class App:
@@ -326,6 +340,8 @@ class App:
         global player
         player = Player(0, 0)
         spawn_enemy(0, 127)
+        global Score
+        score = Score(0, 0)
         pyxel.playm(0, loop=True)
         pyxel.run(self.update, self.draw)
 
@@ -334,6 +350,7 @@ class App:
             pyxel.quit()
 
         player.update()
+        score.update()
         for enemy in enemies:
             if abs(player.x - enemy.x) < 6 and abs(player.y - enemy.y) < 6:
                 game_over()
@@ -351,11 +368,11 @@ class App:
         pyxel.bltm(0, 0, 0, (scroll_x // 4) % 128, 128, 128, 128)
         pyxel.bltm(0, 0, 0, scroll_x, 0, 128, 128, TRANSPARENT_COLOR)
 
-        umplus12.draw_text(50, 58, "Pyxel♪", 8)
 
         # Draw characters
         pyxel.camera(scroll_x, 0)
         player.draw()
+        score.draw()
         for enemy in enemies:
             enemy.draw()
 
