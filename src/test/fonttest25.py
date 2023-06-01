@@ -312,7 +312,7 @@ class App:
         elif self.scene == SCENE_GAMEOVER:
             self.draw_gameover_scene()
     
-        s = f"SCORE {self.score:>4}"
+        s = f"SCORE {self.score:>4} /1920"
         pyxel.text(5+scroll_x, 4, s, 1)
         pyxel.text(4+scroll_x, 4, s, 7)
     
