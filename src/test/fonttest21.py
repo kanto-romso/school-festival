@@ -268,6 +268,7 @@ class App:
         elif self.scene == SCENE_GAMEOVER:
             self.update_gameover_scene()
 
+    def update_play_scene(self):
 
         player.update()
         self.score = scroll_x
