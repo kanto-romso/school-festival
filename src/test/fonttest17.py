@@ -7,6 +7,11 @@ TILE_SPAWN1 = (0, 1)
 TILE_SPAWN2 = (1, 1)
 TILE_SPAWN3 = (2, 1)
 WALL_TILE_X = 4
+#画面遷移用の変数
+SCENE_TITLE = 0	    #タイトル画面
+SCENE_PLAY = 1	    #ゲーム画面
+SCENE_GAMEOVER = 2  #ゲームオーバー画面
+
 
 scroll_x = 0
 player = None
@@ -253,6 +258,15 @@ class App:
     def update(self):
         if pyxel.btn(pyxel.KEY_Q):
             pyxel.quit()
+            
+            
+        if self.scene == SCENE_TITLE:
+            self.update_title_scene()
+        elif self.scene == SCENE_PLAY:
+            self.update_play_scene()
+        elif self.scene == SCENE_GAMEOVER:
+            self.update_gameover_scene()
+
 
         player.update()
         self.score = scroll_x
@@ -264,10 +278,40 @@ class App:
             if enemy.x < scroll_x - 8 or enemy.x > scroll_x + 160 or enemy.y > 160:
                 enemy.is_alive = False
         cleanup_list(enemies)
+    #タイトル画面処理用update
+    def update_title_scene(self):
+        #ENTERでゲーム画面に遷移
+        if pyxel.btnp(pyxel.KEY_ENTER):
+            self.scene = SCENE_PLAY
+    
+    def update_gameover_scene(self):
+        #ENTERでタイトル画面に遷移
+        if pyxel.btnp(pyxel.KEY_ENTER):
+            global scroll_x, enemies
+            scroll_x = 0
+            player.x = 0
+            player.y = 0
+            player.dx = 0
+            player.dy = 0
+            enemies = []
+            spawn_enemy(0, 127)
+            pyxel.play(3, 9)
+            self.scene = SCENE_TITLE
+
 
     def draw(self):
         pyxel.cls(0)
-
+        
+        
+        if self.scene == SCENE_TITLE:
+            self.draw_title_scene()
+        elif self.scene == SCENE_PLAY:
+            self.draw_play_scene()
+        elif self.scene == SCENE_GAMEOVER:
+            self.draw_gameover_scene()
+    
+    
+    def draw_play_scene(self):
         # Draw level
         pyxel.camera()
         pyxel.bltm(0, 0, 0, (scroll_x // 4) % 128, 128, 128, 128)
@@ -283,6 +327,16 @@ class App:
         s = f"SCORE {self.score:>4}"
         pyxel.text(5+scroll_x, 4, s, 1)
         pyxel.text(4+scroll_x, 4, s, 7)
+        
+    def draw_title_scene(self):
+        pyxel.text(70, 40, "GAME", 7)
+        pyxel.text(50, 80, "- PRESS ENTER -", 7)
+        
+        
+    def draw_gameover_scene(self):
+        pyxel.text(55, 40, "GAME OVER", 7)
+        pyxel.text(50, 80, "- PRESS ENTER -", 7)
+
 
 
 
