@@ -283,12 +283,12 @@ class App:
     #タイトル画面処理用update
     def update_title_scene(self):
         #ENTERでゲーム画面に遷移
-        #if pyxel.btnp(pyxel.KEY_ENTER):
+        #if pyxel.btnp(pyxel.KEY_RETURN):
             self.scene = SCENE_PLAY
     
     def update_gameover_scene(self):
         #ENTERでタイトル画面に遷移
-        if pyxel.btnp(pyxel.KEY_ENTER):
+        if pyxel.btnp(pyxel.KEY_RETURN):
             global scroll_x, enemies
             scroll_x = 0
             player.x = 0
