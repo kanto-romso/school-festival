@@ -336,8 +336,8 @@ class App:
         
         
     def draw_gameover_scene(self):
-        pyxel.text(55+scroll_x, 40, "GAME OVER", 7)
-        pyxel.text(50+scroll_x, 80, "- PRESS ENTER -", 7)
+        pyxel.text(35+scroll_x, 40, "GAME OVER", 7)
+        pyxel.text(30+scroll_x, 80, "- PRESS ENTER -", 7)
 
 
 
