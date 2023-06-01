@@ -244,6 +244,7 @@ class App:
     def __init__(self):
         pyxel.init(128, 128, title="Pyxel Platformer")
         pyxel.load("title (9).pyxres")
+        self.scene = SCENE_TITLE
         self.score = 0
 
         # Change enemy spawn tiles invisible
@@ -310,6 +311,9 @@ class App:
         elif self.scene == SCENE_GAMEOVER:
             self.draw_gameover_scene()
     
+        s = f"SCORE {self.score:>4}"
+        pyxel.text(5+scroll_x, 4, s, 1)
+        pyxel.text(4+scroll_x, 4, s, 7)
     
     def draw_play_scene(self):
         # Draw level
@@ -324,9 +328,6 @@ class App:
         for enemy in enemies:
             enemy.draw()
 
-        s = f"SCORE {self.score:>4}"
-        pyxel.text(5+scroll_x, 4, s, 1)
-        pyxel.text(4+scroll_x, 4, s, 7)
         
     def draw_title_scene(self):
         pyxel.text(70, 40, "GAME", 7)
