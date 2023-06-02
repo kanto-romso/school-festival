@@ -246,6 +246,7 @@ class App:
         pyxel.load("title (9).pyxres")
         self.scene = SCENE_TITLE
         self.score = 0
+        self.score2 = 0
         self.highscore = 0
         self.ranking = [0,0,0]
 
@@ -274,6 +275,7 @@ class App:
 
         player.update()
         self.score = scroll_x
+        self.score2 = self.score
         if self.highscore <= self.score:
             self.highscore = self.score
         for enemy in enemies:
@@ -345,9 +347,9 @@ class App:
     def draw_gameover_scene(self):
         i = 0
         while i < len(self.ranking):
-            if self.ranking[i] < self.score:
-                self.ranking.insert(i, self.score)
-                self.score = 0
+            if self.ranking[i] < self.score2:
+                self.ranking.insert(i, self.score2)
+                self.score2 = 0
                 break
             i = i + 1
         pyxel.text(35+scroll_x, 40, "GAME OVER", 7)
