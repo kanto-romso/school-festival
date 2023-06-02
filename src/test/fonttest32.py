@@ -292,12 +292,6 @@ class App:
     
     def update_gameover_scene(self):
         #ENTERでタイトル画面に遷移
-        i = 0
-        while i < len(self.ranking):
-            if self.ranking[i] < self.score:
-                self.ranking.insert(i, self.score)
-                break
-            i = i + 1
         if pyxel.btnp(pyxel.KEY_RETURN):
             global scroll_x, enemies
             scroll_x = 0
@@ -349,6 +343,12 @@ class App:
         
         
     def draw_gameover_scene(self):
+        i = 0
+        while i < len(self.ranking):
+            if self.ranking[i] < self.score:
+                self.ranking.insert(i, self.score)
+                break
+            i = i + 1
         pyxel.text(35+scroll_x, 40, "GAME OVER", 7)
         pyxel.text(30+scroll_x, 60, "- PRESS ENTER -", 7)
         rank1 = "1 :{:>4}".format(self.ranking[0])
