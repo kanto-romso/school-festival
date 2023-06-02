@@ -16,7 +16,6 @@ SCENE_GAMEOVER = 2  #ゲームオーバー画面
 scroll_x = 0
 player = None
 enemies = []
-entry_ranking = False
 
 
 def get_tile(tile_x, tile_y):
@@ -344,14 +343,13 @@ class App:
         
         
     def draw_gameover_scene(self):
-        if entry_ranking == False:
-            i = 0
-            while i < len(self.ranking):
-                if self.ranking[i] < self.score:
-                    self.ranking.insert(i, self.score)
-                    entry_ranking = True
-                    break
-                i = i + 1
+        i = 0
+        while i < len(self.ranking):
+            if self.ranking[i] < self.score:
+                self.ranking.insert(i, self.score)
+                self.score = 0
+                break
+            i = i + 1
         pyxel.text(35+scroll_x, 40, "GAME OVER", 7)
         pyxel.text(30+scroll_x, 60, "- PRESS ENTER -", 7)
         rank1 = "1 :{:>4}".format(self.ranking[0])
