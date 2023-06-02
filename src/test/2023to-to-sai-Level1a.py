@@ -1,5 +1,4 @@
 import pyxel
-
 TRANSPARENT_COLOR = 2
 SCROLL_BORDER_X = 80
 TILE_FLOOR = (1, 0)
@@ -129,7 +128,7 @@ class Player:
             last_scroll_x = scroll_x
             scroll_x = min(self.x - SCROLL_BORDER_X, 240 * 8)
             spawn_enemy(last_scroll_x + 128, scroll_x + 127)
-        if self.y >= 128:
+        if self.y >= 16:
             self.scene = SCENE_GAMEOVER
 
     def draw(self):
