@@ -242,7 +242,7 @@ class Enemy3Bullet:
        
 class App:
     def __init__(self):
-        pyxel.init(128, 128, title="Pyxel Platformer")
+        pyxel.init(128, 16, title="Pyxel Platformer")
         pyxel.load("title (9).pyxres")
         self.scene = SCENE_TITLE
         self.score = 0
