@@ -280,6 +280,7 @@ class App:
         while i < len(self.ranking):
             if self.ranking[i] < self.score:
                 self.ranking[i] = self.score
+                break
             i = i + 1
         for enemy in enemies:
             if abs(player.x - enemy.x) < 6 and abs(player.y - enemy.y) < 6:
