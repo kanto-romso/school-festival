@@ -366,6 +366,8 @@ class App:
 
 
 def game_over():
+    self.scene = SCENE_GAMEOVER
+
     global scroll_x, enemies
     scroll_x = 0
     player.x = 0
@@ -375,7 +377,7 @@ def game_over():
     enemies = []
     spawn_enemy(0, 127)
     pyxel.play(3, 9)
-    self.scene = SCENE_TITLE
+    
 
 
 
