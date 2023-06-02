@@ -246,6 +246,7 @@ class App:
         pyxel.load("title (9).pyxres")
         self.scene = SCENE_TITLE
         self.score = 0
+        self.highscore = 0
 
         # Change enemy spawn tiles invisible
         pyxel.image(0).rect(0, 8, 24, 8, TRANSPARENT_COLOR)
@@ -272,6 +273,8 @@ class App:
 
         player.update()
         self.score = scroll_x
+        if self.highscore <= self.score:
+            self.highscore = self.score
         for enemy in enemies:
             if abs(player.x - enemy.x) < 6 and abs(player.y - enemy.y) < 6:
                 self.scene = SCENE_GAMEOVER
@@ -313,8 +316,11 @@ class App:
             self.draw_gameover_scene()
     
         s = f"SCORE {self.score:>4} /1920"
+        hs = "HighScore :{:>4}".format(self.highscore)
         pyxel.text(5+scroll_x, 4, s, 1)
         pyxel.text(4+scroll_x, 4, s, 7)
+        pyxel.text(5+scroll_x,10,hs,1)
+        pyxel.text(4+scroll_x,10,hs,7)
     
     def draw_play_scene(self):
         # Draw level
