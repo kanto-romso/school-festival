@@ -366,7 +366,7 @@ class App:
 
 
 def game_over():
-    self.scene = SCENE_GAMEOVER
+    #self.scene = SCENE_GAMEOVER
 
     global scroll_x, enemies
     scroll_x = 0
