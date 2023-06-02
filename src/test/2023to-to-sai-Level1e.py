@@ -375,6 +375,7 @@ def game_over():
     enemies = []
     spawn_enemy(0, 127)
     pyxel.play(3, 9)
+    self.scene = SCENE_TITLE
 
 
 
