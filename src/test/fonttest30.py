@@ -279,7 +279,7 @@ class App:
         i = 0
         while i < len(self.ranking):
             if self.ranking[i] < self.score:
-                self.ranking.insert(self.score, i)
+                self.ranking.insert(i, self.score)
                 break
             i = i + 1
         for enemy in enemies:
