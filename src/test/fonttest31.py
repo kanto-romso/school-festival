@@ -276,12 +276,6 @@ class App:
         self.score = scroll_x
         if self.highscore <= self.score:
             self.highscore = self.score
-        i = 0
-        while i < len(self.ranking):
-            if self.ranking[i] < self.score:
-                self.ranking.insert(i, self.score)
-                break
-            i = i + 1
         for enemy in enemies:
             if abs(player.x - enemy.x) < 6 and abs(player.y - enemy.y) < 6:
                 self.scene = SCENE_GAMEOVER
@@ -298,6 +292,12 @@ class App:
     
     def update_gameover_scene(self):
         #ENTERでタイトル画面に遷移
+        i = 0
+        while i < len(self.ranking):
+            if self.ranking[i] < self.score:
+                self.ranking.insert(i, self.score)
+                break
+            i = i + 1
         if pyxel.btnp(pyxel.KEY_RETURN):
             global scroll_x, enemies
             scroll_x = 0
